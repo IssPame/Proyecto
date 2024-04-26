@@ -9,7 +9,7 @@ x, y = sp.symbols('x, y')
 # Funcion para validar el operador de la inecuacion
 # Raise interrumpe el programa y activa el manejo de excepciones
 def Validar_Op(op):
-    Op_Validos = ['<=', '<', '>', '>=']
+    Op_Validos = ['<=', '<', '=', '>', '>=']
     if op not in Op_Validos:
         raise ValueError(f"Ingrese un operador valido {Op_Validos}")
     return op
@@ -39,10 +39,10 @@ for i in range(Restricciones):
     print()
     Ec_x = Validar_Num(f"Indique el valor de X1 en la restriccion {i+1}: ")
     Ec_y = Validar_Num(f"Indique el valor de X2 en la restriccion {i+1}: ")
-    Tipo = input("Indique el tipo de restriccion (<=, <, >, >=): ")
-    while Tipo not in ['<=', '<', '>', '>=']:
+    Tipo = input("Indique el tipo de restriccion (<=, <, =, >, >=): ")
+    while Tipo not in ['<=', '<', '=', '>', '>=']:
         print("Operador inválido. Intente de nuevo.")
-        Tipo = input("Indique el tipo de restricción (<=, <, >, >=): ")
+        Tipo = input("Indique el tipo de restricción (<=, <, =, >, >=): ")
     Tipo = Validar_Op(Tipo)
     ValorEc = Validar_Num(f"Indique el valor de la restriccion {i+1}: ")
     restricciones.append((Ec_x, Ec_y, Tipo, ValorEc))
